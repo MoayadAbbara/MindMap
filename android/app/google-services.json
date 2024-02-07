@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "759893493253",
+    "project_id": "mindmap-b4058",
+    "storage_bucket": "mindmap-b4058.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759893493253:android:80c2fc86bf54518ec4be6c",
+        "android_client_info": {
+          "package_name": "com.example.mind_map"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEGuz5te9oSEJQZ6G7WOZNevh9q4aAFIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
