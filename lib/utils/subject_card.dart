@@ -6,7 +6,13 @@ class SubjectCard extends StatelessWidget {
   final String name;
   final int completedLessonsNum;
   final int allLessonNum;
-  const SubjectCard({super.key, required this.name, required this.completedLessonsNum, required this.allLessonNum, required this.id});
+  const SubjectCard({
+    super.key,
+    required this.name,
+    required this.completedLessonsNum,
+    required this.allLessonNum,
+    required this.id,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +20,14 @@ class SubjectCard extends StatelessWidget {
       child: ListTile(
         tileColor: const Color.fromARGB(230, 115, 179, 220),
         title: Padding(
-          padding: const EdgeInsets.fromLTRB(8.0,0,0,0),
+          padding: const EdgeInsets.fromLTRB(8.0, 0, 0, 0),
           child: Text(name),
         ),
-        trailing: Text('${completedLessonsNum.toString()}/${allLessonNum.toString()}'),
+        trailing: Text(
+            '${completedLessonsNum.toString()}/${allLessonNum.toString()}'),
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SubjectDetails(id : id)));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => SubjectDetails(id: id)));
         },
       ),
     );

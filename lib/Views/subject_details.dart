@@ -159,6 +159,7 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                               title: lessonSnapshot.data![index].title,
                               isDone: lessonSnapshot.data![index].isDone,
                               subject: snapshot.data!,
+                              weeknum: lessonSnapshot.data![index].weekNum,
                             );
                           },
                         ),
