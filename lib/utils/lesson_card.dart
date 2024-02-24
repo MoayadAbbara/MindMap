@@ -112,20 +112,37 @@ class _LessonCardState extends State<LessonCard> {
                     itemBuilder: (context, index) {
                       return Container(
                         decoration: const BoxDecoration(
-                            color: Color.fromARGB(93, 0, 13, 255),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            )),
+                          color: Color.fromARGB(93, 0, 13, 255),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
+                          ),
+                        ),
                         margin: const EdgeInsets.fromLTRB(15, 8, 15, 0),
                         width: double.infinity,
                         height: 50,
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(10, 8, 0, 0),
-                          child: Text(
-                            snapshot.data![index].note,
-                            style: const TextStyle(
-                              fontSize: 15,
-                            ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                snapshot.data![index].note,
+                                style: const TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.delete,
+                                  size: 30,
+                                ),
+                                color: const Color.fromARGB(255, 216, 32, 18),
+                                onPressed: () async {
+                                  await DatabaseService()
+                                      .deleteNote(snapshot.data![index].id);
+                                },
+                              ),
+                            ],
                           ),
                         ),
                       );

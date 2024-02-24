@@ -127,6 +127,10 @@ class DatabaseService {
     });
   }
 
+  Future<void> deleteNote(String noteID) async {
+    await _db.collection('Notes').doc(noteID).delete();
+  }
+
 /*
 Future<SubjectModel> getSubjectWithID(String id) async{
   final snapshot = await _db.collection("Subject").doc(id).get();
