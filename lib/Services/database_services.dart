@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mind_map/Models/lesson_model.dart';
+import 'package:mind_map/Models/lesson_notes_model.dart';
 import 'package:mind_map/Models/subject_model.dart';
 
 class DatabaseService {
@@ -93,12 +94,37 @@ class DatabaseService {
         lesson.id = doc.id;
         lessonList.add(lesson);
       }
+
       return lessonList;
     });
   }
 
   Future<void> checkLesson(String lessonID, bool isChecked) async {
-    _db.collection('Lesson').doc(lessonID).update({'isDone': isChecked});
+    await _db.collection('Lesson').doc(lessonID).update({'isDone': isChecked});
+  }
+
+  Future<void> addNote(String noteText, String lessonID) async {
+    LessonNotes note = LessonNotes(note: noteText);
+    note.lessonID = lessonID;
+    await _db.collection('Notes').add(note.toJson());
+  }
+
+  Stream<List<LessonNotes>> getNotesStream(String lessonID) {
+    return _db
+        .collection("Notes")
+        .orderBy('timestamp')
+        .where('lessonID', isEqualTo: lessonID)
+        .snapshots()
+        .map((snapshot) {
+      List<LessonNotes> notesList = [];
+      for (DocumentSnapshot doc in snapshot.docs) {
+        LessonNotes note = LessonNotes(note: doc['note']);
+        note.lessonID = doc['lessonID'];
+        note.id = doc.id;
+        notesList.add(note);
+      }
+      return notesList;
+    });
   }
 
 /*

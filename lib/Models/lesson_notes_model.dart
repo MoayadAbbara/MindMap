@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class LessonNotes {
   late String id;
   late String lessonID;
@@ -13,9 +15,9 @@ class LessonNotes {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'lessonID': lessonID,
       'note': note,
+      'timestamp': FieldValue.serverTimestamp()
     };
   }
 }

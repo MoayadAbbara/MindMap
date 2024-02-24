@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mind_map/Models/subject_model.dart';
-import 'package:mind_map/Services/data_base_services.dart';
+import 'package:mind_map/Services/database_services.dart';
 import 'package:mind_map/utils/subject_card.dart';
 
 class Home extends StatefulWidget {
@@ -70,7 +70,8 @@ class HomeState extends State<Home> {
                       itemBuilder: (context, index) {
                         return SubjectCard(
                           name: snapshot.data![index].name,
-                          completedLessonsNum: snapshot.data![index].completedLessonsNum,
+                          completedLessonsNum:
+                              snapshot.data![index].completedLessonsNum,
                           allLessonNum: snapshot.data![index].allLessonNum,
                           id: snapshot.data![index].id,
                         );

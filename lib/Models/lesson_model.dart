@@ -22,7 +22,6 @@ class LessonModel {
       'weekNum': weekNum,
       'title': title,
       'isDone': isDone,
-      //'notes': notes,
     };
   }
 }

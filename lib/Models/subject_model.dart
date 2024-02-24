@@ -16,12 +16,12 @@ class SubjectModel {
     progress = subjectMap['progress'];
   }
 
-  Map<String,dynamic> toJson() {
-    return <String,dynamic>{
-      "name" : name ,
-      "progress" : progress,
-      "completedLessonsNum" : completedLessonsNum,
-      "allLessonNum" : allLessonNum,
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      "name": name,
+      "progress": progress,
+      "completedLessonsNum": completedLessonsNum,
+      "allLessonNum": allLessonNum,
       'timestamp': FieldValue.serverTimestamp()
     };
   }

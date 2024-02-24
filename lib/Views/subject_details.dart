@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mind_map/Models/lesson_model.dart';
 import 'package:mind_map/Models/subject_model.dart';
-import 'package:mind_map/Services/data_base_services.dart';
+import 'package:mind_map/Services/database_services.dart';
 import 'package:mind_map/utils/lesson_card.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
